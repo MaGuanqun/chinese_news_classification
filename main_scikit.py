@@ -5,9 +5,6 @@ import shutil
 import re
 
 import numpy as np 
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-# %matplotlib inline
 
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -21,16 +18,6 @@ from sklearn.ensemble import RandomForestClassifier
 from load_data import preprocess, load_datasets
 
 X_train_data, y_train, X_test_data, y_test = load_datasets()
-
-wordcloud = WordCloud(scale=4,
-                      font_path='simhei.ttf',
-                      background_color='white',
-                      max_words = 100,
-                      max_font_size = 60,
-                      random_state=20).generate(X_train_data[1000])
-
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis('off')
 
 stopwords = open('dict/stop_words.txt', encoding='utf-8').read().split()
 
